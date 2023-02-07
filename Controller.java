@@ -184,7 +184,7 @@ public class Controller {
     void Sort() {
         Logic logic = new Logic();
         List<Customer> list = logic.fillList();
-        SortT.setText(String.valueOf(logic.cardBalan(list)));
+        SortT.setText(String.valueOf(logic.cardBalanceCardNumber(list)));
         System.out.println("button clicked");
     }
     @FXML
