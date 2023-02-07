@@ -65,7 +65,7 @@ public class Logic {
         return qCardBalance;
     }
 
-    public List<Customer> cardBalan(List<Customer> list) {
+    public List<Customer> cardBalanceCardNumber(List<Customer> list) {
         list.sort(Customer.CardNumberComparator);
         return list;
     }
