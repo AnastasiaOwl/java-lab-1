@@ -65,24 +65,31 @@ public class Logic {
         return qCardBalance;
     }
 
-    public List<Customer> cardBalanceCardNumber(List<Customer> list) {
-        list.sort(Customer.CardNumberComparator);
-        return list;
+   public List<Customer> sortByCardBalanceCardNumber(List<Customer> list) {
+        list.sort(new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                int v = Double.compare(o1.getCardBalance(),o2.getCardBalance());
+                if(v == 0) {
+                    return Long.compare(o1.getCardNumber(),o2.getCardNumber());
+                }
+                return v;
+            }
+        });
+       return list;
     }
-    public Map<Integer,String> birthYear(List<Customer> list) {
-       Map<Integer,String> map= new HashMap<>();
+    public HashSet sortByBirthYear(List<Customer> list) {
+       HashSet h= new HashSet();
        for(Customer customer : list){
-           map.get(customer.birthDate.getYear());
-           map.put(customer.birthDate.getYear(),customer.name);
+           h.add(customer.birthDate.getYear());
        }
-        return map;
+        return h;
     }
-    public Map<Integer,Double> yearCardBalance(List<Customer> list) {
-        Map<Integer, Double> map= new HashMap<>();
-        list.sort(Customer.CardBalanceComparator);
+    public Map<Integer,Customer> sortYearCardBalance(List<Customer> list) {
+        Map<Integer, Customer> map= new HashMap<>();
+        list.sort(Comparator.comparing(Customer::getCardBalance));
         for(Customer customer : list){
-            map.get(customer.cardBalance);
-            map.put(customer.birthDate.getYear(),customer.cardBalance);
+           map.put(customer.birthDate.getYear(), customer);
         }
         return map;
     }
