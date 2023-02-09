@@ -96,26 +96,5 @@ public class Customer implements Comparable <Customer>{
     public int compareTo(Customer o) {
          return (int) (getCardBalance() - o.getCardBalance());
     }
-    public static Comparator<Customer> CardNumberComparator = new Comparator<Customer>() {
-        @Override
-        public int compare(Customer o1, Customer o2) {
-            int v = Integer.compare((int) o1.getCardBalance(), (int) o2.getCardBalance());
-               if(v == 0) {
-                 return Integer.compare((int) o1.getCardNumber(), (int) o2.getCardNumber());
-             }
-               return v;
-        }
-    };
-
-    public static Comparator<Customer> CardBalanceComparator = new Comparator<Customer>() {
-        @Override
-        public int compare(Customer o1, Customer o2) {
-            int v = Integer.compare((int) o1.birthDate.getYear(), (int) o2.birthDate.getYear());
-            if(v == 0) {
-                return Integer.compare((int) o1.getCardBalance(), (int) o2.getCardBalance());
-            }
-            return v;
-        }
-    };
 
 }
