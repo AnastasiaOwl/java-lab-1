@@ -122,7 +122,7 @@ public class Controller {
             }
         });
     }
-    @FXML
+     @FXML
     void searchName() {
         Logic logic = new Logic();
         searchNameB.setOnAction(event -> {
@@ -140,7 +140,7 @@ public class Controller {
             }
             if (success) {
                 List<Customer> list = logic.fillList();
-                ListName.setText(String.valueOf(logic.name(list, nameSearch)));
+                ListName.setText(String.valueOf(logic.sortName(list, nameSearch)));
                 System.out.println("button clicked");
             }
         });
@@ -165,7 +165,7 @@ public class Controller {
             }
             if (success) {
                 List<Customer> list = logic.fillList();
-                ListCardNumber.setText(String.valueOf(logic.cardNumber(list, cardNumberF,cardNumberT)));
+                ListCardNumber.setText(String.valueOf(logic.sortCardNumber(list, cardNumberF,cardNumberT)));
                 System.out.println("button clicked");
             }
         });
@@ -175,30 +175,30 @@ public class Controller {
         Logic logic = new Logic();
         int qCardBalance = 0;
         List<Customer> list = logic.fillList();
-        List<Customer> findedList2=logic.cardBalance(list, qCardBalance);
+        List<Customer> findedList2=logic.sortCardBalance(list, qCardBalance);
         qCardBalanceT.setText(String.valueOf(logic.qCardBalance(list,findedList2,qCardBalance)));
-        ListDebt.setText(String.valueOf(logic.cardBalance(list, qCardBalance)));
+        ListDebt.setText(String.valueOf(logic.sortCardBalance(list, qCardBalance)));
         System.out.println("button clicked");
     }
     @FXML
-    void Sort() {
-        Logic logic = new Logic();
+   void Sort() {
+       Logic logic = new Logic();
         List<Customer> list = logic.fillList();
-        SortT.setText(String.valueOf(logic.cardBalanceCardNumber(list)));
-        System.out.println("button clicked");
-    }
+        SortT.setText(String.valueOf(logic.sortByCardBalanceCardNumber(list)));
+       System.out.println("button clicked");
+   }
     @FXML
     void yearSort() {
         Logic logic = new Logic();
         List<Customer> list = logic.fillList();
-        sortYear.setText(String.valueOf(logic.birthYear(list)));
+        sortYear.setText(String.valueOf(logic.sortByBirthYear(list)));
         System.out.println("button clicked");
     }
     @FXML
     void yearBalanceB() {
         Logic logic = new Logic();
         List<Customer> list = logic.fillList();
-        YearBalanceT.setText(String.valueOf(logic.yearCardBalance(list)));
+        YearBalanceT.setText(String.valueOf(logic.sortYearCardBalance(list)));
         System.out.println("button clicked");
     }
 }
