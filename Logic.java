@@ -79,7 +79,7 @@ public class Logic {
        return list;
     }
     public HashSet sortByBirthYear(List<Customer> list) {
-       HashSet h= new HashSet();
+       HashSet<Integer> h= new HashSet <Integer>();
        for(Customer customer : list){
            h.add(customer.birthDate.getYear());
        }
